@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pretendard 폰트 (한국어 모던 폰트) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+/* 명조체 (제목용) */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+
+:root {
+  --max-width: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-primary-900;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 제목용 명조체 클래스 */
+.font-display {
+  font-family: 'Nanum Myeongjo', serif;
+  letter-spacing: -0.02em;
+}
+
+/* 게시글 본문 (위지윅으로 작성된 HTML 렌더링용) */
+.prose-church {
+  @apply text-primary-800 leading-relaxed;
+}
+.prose-church p {
+  @apply my-4;
+}
+.prose-church h1, .prose-church h2, .prose-church h3 {
+  @apply font-bold mt-6 mb-3 text-primary-900;
+}
+.prose-church a {
+  @apply text-accent-600 underline;
+}
+.prose-church ul {
+  @apply list-disc ml-6 my-3;
+}
+.prose-church ol {
+  @apply list-decimal ml-6 my-3;
+}
+.prose-church blockquote {
+  @apply border-l-4 border-accent-300 pl-4 italic text-primary-700 my-4;
+}
+
+/* 유튜브 임베드 16:9 컨테이너 */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+}
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
