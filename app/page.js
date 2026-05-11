@@ -46,8 +46,13 @@ export default async function HomePage() {
       <StructuredData type="church" />
       <StructuredData type="website" />
       {/* HERO */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
+      <section
+        className="relative bg-primary-900 text-white bg-cover bg-center"
+        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+      >
+        {/* 텍스트 가독성용 어두운 오버레이 (배경이 너무 밝게 보일 때 글자가 잘 보이도록) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/70 via-primary-900/40 to-primary-900/70 pointer-events-none" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
           <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight mb-6">
             말씀과 기도가 풍성한
             <br />
@@ -71,6 +76,26 @@ export default async function HomePage() {
             >
               설교 듣기
             </Link>
+            <a
+              href="https://www.youtube.com/@TV-ic4vg"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="유튜브 주소망TV (새 창)"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md border-2 border-accent-300 text-accent-300 font-bold hover:bg-accent-300 hover:text-primary-900 transition"
+            >
+              <svg
+                className="w-7 h-7"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill="#FF0000"
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"
+                />
+                <path fill="#FFFFFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+              <span>주소망TV</span>
+            </a>
           </div>
         </div>
       </section>
