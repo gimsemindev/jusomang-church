@@ -2,6 +2,13 @@ export const metadata = {
   title: '교회소개 | 주소망교회',
 };
 
+// 담임목사 정보 — 여기를 수정하시면 됩니다
+const PASTOR = {
+  name: '김영민 목사',
+  photo: '/pastor.jpg',  // public 폴더에 pastor.jpg 파일을 두면 자동 표시됨
+  title: '주소망교회 담임목사',
+};
+
 export default function AboutPage() {
   return (
     <>
@@ -26,34 +33,87 @@ export default function AboutPage() {
           계승하고 있습니다. 대한예수교 장로회(합동) 평북노회에 소속된 건전한 교회입니다.
         </p>
 
-        <h2 className="font-display font-bold text-2xl md:text-3xl text-primary-900 mb-6">
+        <h2 className="font-display font-bold text-2xl md:text-3xl text-primary-900 mb-8">
           담임목사 소개
         </h2>
-        <div className="bg-primary-50 rounded-lg p-8 mb-12">
-          <h3 className="font-display font-bold text-xl text-primary-900 mb-4">교육 배경</h3>
-          <ul className="text-primary-800 leading-relaxed space-y-1 mb-6">
-            <li>• 서강대학교 졸업</li>
-            <li>• 총신대학교 신학대학원 (M.Div) 신학석사</li>
-            <li>• 총신대학교 일반대학원 (Th.M) 석사</li>
-            <li>• 총신대학교 일반대학원 (Ph.D) 박사</li>
-          </ul>
 
-          <h3 className="font-display font-bold text-xl text-primary-900 mb-4">저술 활동</h3>
-          <ul className="text-primary-800 leading-relaxed space-y-1 mb-6">
-            <li>• 하이델베르크 제자양육</li>
-            <li>• 특강 이사야 1·2</li>
-            <li>• 성경은 읽기다</li>
-            <li>• 언약따라 성경탐험</li>
-            <li>• 욥, 하나님께 고난을 묻다</li>
-            <li>• 욥, 하나님께 대답을 듣다</li>
-            <li>• 외 다수의 저서</li>
-          </ul>
+        {/* 사진 + 이름 영역 */}
+        <div className="bg-primary-50 rounded-lg p-6 md:p-8 mb-12">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start mb-8">
+            {/* 사진 */}
+            <div className="flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={PASTOR.photo}
+                alt={PASTOR.name}
+                className="w-40 h-40 md:w-48 md:h-48 rounded-lg object-cover bg-primary-200 shadow-md"
+                onError={(e) => {
+                  // 사진 파일이 없을 때 대체 표시
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling.style.display = 'flex';
+                }}
+              />
+              <div
+                className="w-40 h-40 md:w-48 md:h-48 rounded-lg bg-primary-200 items-center justify-center text-primary-500 text-sm flex-col text-center px-3 hidden"
+                style={{ display: 'none' }}
+              >
+                <span className="text-3xl mb-2">📷</span>
+                <span>사진 준비중</span>
+              </div>
+            </div>
 
-          <h3 className="font-display font-bold text-xl text-primary-900 mb-4">목회 경력</h3>
-          <p className="text-primary-800 leading-relaxed">
-            서울남부교회 교육목사를 역임하였으며, 현재 주소망교회를 개척하여 담임목사로
-            시무 중이십니다.
-          </p>
+            {/* 이름과 직책 */}
+            <div className="text-center md:text-left">
+              <h3 className="font-display font-bold text-2xl md:text-3xl text-primary-900 mb-2">
+                {PASTOR.name}
+              </h3>
+              <p className="text-primary-600 mb-4">{PASTOR.title}</p>
+              <p className="text-sm text-primary-700 leading-relaxed">
+                정통 개혁주의 신앙에 기초하여 하나님의 말씀을 가르치고, 양들을 돌보며,
+                주소망교회 공동체를 섬기고 있습니다.
+              </p>
+            </div>
+          </div>
+
+          {/* 학력/저술/경력 */}
+          <div className="border-t border-primary-200 pt-6 space-y-6">
+            <div>
+              <h4 className="font-display font-bold text-lg text-primary-900 mb-3">
+                📚 교육 배경
+              </h4>
+              <ul className="text-primary-800 leading-relaxed space-y-1 text-sm md:text-base">
+                <li>• 서강대학교 졸업</li>
+                <li>• 총신대학교 신학대학원 (M.Div) 신학석사</li>
+                <li>• 총신대학교 일반대학원 (Th.M) 석사</li>
+                <li>• 총신대학교 일반대학원 (Ph.D) 박사</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-display font-bold text-lg text-primary-900 mb-3">
+                ✍️ 저술 활동
+              </h4>
+              <ul className="text-primary-800 leading-relaxed space-y-1 text-sm md:text-base">
+                <li>• 하이델베르크 제자양육</li>
+                <li>• 특강 이사야 1·2</li>
+                <li>• 성경은 읽기다</li>
+                <li>• 언약따라 성경탐험</li>
+                <li>• 욥, 하나님께 고난을 묻다</li>
+                <li>• 욥, 하나님께 대답을 듣다</li>
+                <li>• 외 다수의 저서</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-display font-bold text-lg text-primary-900 mb-3">
+                ⛪ 목회 경력
+              </h4>
+              <p className="text-primary-800 leading-relaxed text-sm md:text-base">
+                서울남부교회 교육목사를 역임하였으며, 현재 주소망교회를 개척하여 담임목사로
+                시무 중이십니다.
+              </p>
+            </div>
+          </div>
         </div>
 
         <h2 className="font-display font-bold text-2xl md:text-3xl text-primary-900 mb-6">
