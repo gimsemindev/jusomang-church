@@ -106,6 +106,15 @@ export default function AboutPage() {
 
             <div>
               <h4 className="font-display font-bold text-lg text-primary-900 mb-3">
+                🎓 강의 활동
+              </h4>
+              <ul className="text-primary-800 leading-relaxed space-y-1 text-sm md:text-base">
+                <li>• 총신대학교 목회신학전문대학원 겸임교수</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-display font-bold text-lg text-primary-900 mb-3">
                 ⛪ 목회 경력
               </h4>
               <p className="text-primary-800 leading-relaxed text-sm md:text-base">
