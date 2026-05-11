@@ -78,7 +78,7 @@ export const metadata = {
       'naver-site-verification': 'f926c21eabdda966a6508f273292cbad48963403',
     },
     // TODO: 구글 서치콘솔(https://search.google.com/search-console)에서 발급받은 코드 입력
-    google: 'GOOGLE_VERIFICATION_CODE_HERE',
+    google: '3kMWARGfgbE4M_IUcvIKfmaS5THT9YtbQUg2iMWi4SY',
   },
   category: 'religion',
   other: {
