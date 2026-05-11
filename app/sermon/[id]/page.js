@@ -38,8 +38,29 @@ async function getAdjacent(id, preached_at) {
 
 export async function generateMetadata({ params }) {
   const sermon = await getSermon(params.id);
-  if (!sermon) return { title: '설교 | 주소망교회' };
-  return { title: `${sermon.title} | 주소망교회` };
+  if (!sermon) return { title: '설교' };
+
+  const plain = sermon.content
+    ? String(sermon.content).replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().slice(0, 150)
+    : `${sermon.title} - 주소망교회 설교`;
+
+  return {
+    title: sermon.title,
+    description: plain,
+    alternates: { canonical: `/sermon/${sermon.id}` },
+    openGraph: {
+      title: `${sermon.title} | 주소망교회`,
+      description: plain,
+      url: `/sermon/${sermon.id}`,
+      type: 'article',
+      publishedTime: sermon.preached_at || sermon.created_at,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: sermon.title,
+      description: plain,
+    },
+  };
 }
 
 export default async function SermonDetailPage({ params }) {

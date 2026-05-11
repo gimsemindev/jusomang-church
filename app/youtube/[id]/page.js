@@ -36,8 +36,29 @@ async function getAdjacent(id) {
 
 export async function generateMetadata({ params }) {
   const post = await getPost(params.id);
-  if (!post) return { title: '유튜브 | 주소망교회' };
-  return { title: `${post.title} | 주소망교회` };
+  if (!post) return { title: '유튜브' };
+
+  const desc = post.description
+    ? String(post.description).replace(/\s+/g, ' ').trim().slice(0, 150)
+    : `${post.title} - 주소망교회 유튜브 영상`;
+
+  return {
+    title: post.title,
+    description: desc,
+    alternates: { canonical: `/youtube/${post.id}` },
+    openGraph: {
+      title: `${post.title} | 주소망교회`,
+      description: desc,
+      url: `/youtube/${post.id}`,
+      type: 'video.other',
+      publishedTime: post.created_at,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: desc,
+    },
+  };
 }
 
 export default async function YoutubeDetailPage({ params }) {

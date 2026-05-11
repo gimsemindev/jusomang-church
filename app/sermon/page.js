@@ -5,7 +5,15 @@ import Pagination from '@/components/Pagination';
 export const revalidate = 60;
 
 export const metadata = {
-  title: '설교 | 주소망교회',
+  title: '설교',
+  description:
+    '주소망교회 설교 모음 — 김영민 목사의 성경 강해 설교를 영상과 함께 만나보세요. 매주 주일 대예배 설교, 수요예배 말씀을 업데이트합니다.',
+  alternates: { canonical: '/sermon' },
+  openGraph: {
+    title: '설교 | 주소망교회',
+    description: '주소망교회 설교 영상과 말씀 모음',
+    url: '/sermon',
+  },
 };
 
 const PAGE_SIZE = 9;

@@ -5,7 +5,15 @@ import Pagination from '@/components/Pagination';
 export const revalidate = 60;
 
 export const metadata = {
-  title: '유튜브 | 주소망교회',
+  title: '유튜브',
+  description:
+    '주소망교회 유튜브 영상 모음 — 설교, 찬양, 교회 행사 영상을 한 곳에서 만나보세요.',
+  alternates: { canonical: '/youtube' },
+  openGraph: {
+    title: '유튜브 | 주소망교회',
+    description: '주소망교회 유튜브 영상',
+    url: '/youtube',
+  },
 };
 
 const PAGE_SIZE = 9;

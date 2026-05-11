@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { supabase } from '@/lib/supabase';
 import SermonCard from '@/components/SermonCard';
 import YoutubeCard from '@/components/YoutubeCard';
+import ChurchMap from '@/components/ChurchMap';
+import StructuredData from '@/components/StructuredData';
 
 // ISR - 1분마다 데이터 갱신
 export const revalidate = 60;
@@ -41,6 +43,8 @@ export default async function HomePage() {
 
   return (
     <>
+      <StructuredData type="church" />
+      <StructuredData type="website" />
       {/* HERO */}
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
@@ -197,23 +201,26 @@ export default async function HomePage() {
         <h2 className="font-display font-bold text-2xl md:text-3xl text-center mb-8 text-primary-900">
           교회 위치
         </h2>
-        <div className="bg-white border border-primary-100 rounded-lg p-8 text-center">
-          <p className="text-primary-800 text-lg">
-            <strong>주소:</strong> 서울 마포구 월드컵로 42길 40 상암근린상가 330-333호
-          </p>
-          <p className="text-sm text-primary-600 mt-3">
-            서부운전면허시험장 옆에 위치해 있어 찾아오시기 편리합니다.
-          </p>
-          <p className="text-primary-800 text-lg mt-4">
-            <strong>전화:</strong>{' '}
-            <a href="tel:02-302-1038" className="text-accent-700 hover:underline">02-302-1038</a>
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block mt-6 px-5 py-2 bg-primary-900 text-white rounded-md hover:bg-primary-800 transition"
-          >
-            오시는 길 자세히 보기
-          </Link>
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <ChurchMap showCaption={false} />
+          <div className="bg-white border border-primary-100 rounded-lg p-8 text-center md:text-left">
+            <p className="text-primary-800 text-lg">
+              <strong>주소:</strong> 서울 마포구 월드컵로 42길 40 상암근린상가 330-333호
+            </p>
+            <p className="text-sm text-primary-600 mt-3">
+              서부운전면허시험장 옆에 위치해 있어 찾아오시기 편리합니다.
+            </p>
+            <p className="text-primary-800 text-lg mt-4">
+              <strong>전화:</strong>{' '}
+              <a href="tel:02-302-1038" className="text-accent-700 hover:underline">02-302-1038</a>
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block mt-6 px-5 py-2 bg-primary-900 text-white rounded-md hover:bg-primary-800 transition"
+            >
+              오시는 길 자세히 보기
+            </Link>
+          </div>
         </div>
       </section>
     </>

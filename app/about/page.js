@@ -1,7 +1,16 @@
 import PastorImage from './PastorImage';
+import StructuredData from '@/components/StructuredData';
 
 export const metadata = {
-  title: '교회소개 | 주소망교회',
+  title: '교회소개',
+  description:
+    '주소망교회는 대한예수교 장로회(합동) 평북노회 소속의 정통 개혁주의 장로교회입니다. 사도신경·니케아 신경·웨스트민스터 신앙고백을 따르며, 말씀과 기도가 살아있는 공동체입니다. 담임 김영민 목사.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: '교회소개 | 주소망교회',
+    description: '말씀과 기도가 풍성한 정통 개혁주의 장로교회',
+    url: '/about',
+  },
 };
 
 // 담임목사 정보 — 여기를 수정하시면 됩니다
@@ -14,6 +23,14 @@ const PASTOR = {
 export default function AboutPage() {
   return (
     <>
+      <StructuredData type="church" />
+      <StructuredData
+        type="breadcrumb"
+        items={[
+          { name: '홈', url: '/' },
+          { name: '교회소개', url: '/about' },
+        ]}
+      />
       <section className="bg-primary-900 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-display font-bold text-3xl md:text-4xl">교회소개</h1>

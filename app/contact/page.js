@@ -1,5 +1,16 @@
+import ChurchMap from '@/components/ChurchMap';
+import StructuredData from '@/components/StructuredData';
+
 export const metadata = {
-  title: '오시는길 | 주소망교회',
+  title: '오시는 길',
+  description:
+    '주소망교회 위치 안내 — 서울 마포구 상암동 1680번지 상암근린상가 3층 330호. 서부운전면허시험장 옆. 대중교통 안내, 약도, 연락처를 한 페이지에서 확인하세요.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: '오시는 길 | 주소망교회',
+    description: '주소망교회 위치와 대중교통 안내',
+    url: '/contact',
+  },
 };
 
 export default function ContactPage() {
@@ -8,6 +19,14 @@ export default function ContactPage() {
 
   return (
     <>
+      <StructuredData type="contact" />
+      <StructuredData
+        type="breadcrumb"
+        items={[
+          { name: '홈', url: '/' },
+          { name: '오시는 길', url: '/contact' },
+        ]}
+      />
       <section className="bg-primary-900 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-display font-bold text-3xl md:text-4xl">오시는 길</h1>
@@ -16,6 +35,13 @@ export default function ContactPage() {
       </section>
 
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-12">
+          <h2 className="font-display font-bold text-xl text-primary-900 mb-4 text-center">
+            🗺️ 찾아오시는 길
+          </h2>
+          <ChurchMap className="max-w-lg" />
+        </div>
+
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div>
             <h2 className="font-display font-bold text-xl text-primary-900 mb-4">
