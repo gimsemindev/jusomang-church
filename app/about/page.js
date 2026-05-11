@@ -1,3 +1,5 @@
+import PastorImage from './PastorImage';
+
 export const metadata = {
   title: '교회소개 | 주소망교회',
 };
@@ -41,26 +43,7 @@ export default function AboutPage() {
         <div className="bg-primary-50 rounded-lg p-6 md:p-8 mb-12">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start mb-8">
             {/* 사진 */}
-            <div className="flex-shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={PASTOR.photo}
-                alt={PASTOR.name}
-                className="w-40 h-40 md:w-48 md:h-48 rounded-lg object-cover bg-primary-200 shadow-md"
-                onError={(e) => {
-                  // 사진 파일이 없을 때 대체 표시
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'flex';
-                }}
-              />
-              <div
-                className="w-40 h-40 md:w-48 md:h-48 rounded-lg bg-primary-200 items-center justify-center text-primary-500 text-sm flex-col text-center px-3 hidden"
-                style={{ display: 'none' }}
-              >
-                <span className="text-3xl mb-2">📷</span>
-                <span>사진 준비중</span>
-              </div>
-            </div>
+            <PastorImage src={PASTOR.photo} alt={PASTOR.name} />
 
             {/* 이름과 직책 */}
             <div className="text-center md:text-left">
