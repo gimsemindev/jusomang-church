@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import QuillEditor from './QuillEditor';
 
 export default function AdminPage() {
   const [session, setSession] = useState(null);
@@ -362,13 +363,11 @@ function SermonForm({ id, onSaved, onCancel }) {
         />
       </Field>
 
-      <Field label="본문" hint="HTML 태그 사용 가능 (예: <p>, <strong>, <br>)">
-        <textarea
+      <Field label="본문" hint="굵게, 기울임, 제목, 목록, 링크, 이미지 등을 자유롭게 사용하실 수 있습니다.">
+        <QuillEditor
           value={form.content}
-          onChange={(e) => set('content', e.target.value)}
-          rows={8}
-          className="input font-mono text-sm"
-          placeholder="<p>설교 본문을 입력하세요...</p>"
+          onChange={(html) => set('content', html)}
+          placeholder="설교 본문을 입력하세요..."
         />
       </Field>
 
